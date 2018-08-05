@@ -1,0 +1,90 @@
+debug: false
+debug-level: 3
+enable-error-logging: true
+enable-stat-collection: true
+enable-volatile-features: true
+enable-tab-completion: true
+str-cast-usage: |
+    Usage: /cast <spell>. 
+    Use /cast list to see a list of spells.
+str-unknown-spell: You do not know a spell with that name.
+str-spell-change: You are now using the %s spell.
+str-spell-change-empty: You are no longer using a spell.
+str-on-cooldown: That spell is on cooldown (%c seconds remaining).
+str-missing-reagents: You do not have the required reagents for that spell.
+str-cant-cast: You can't cast that spell right now.
+str-wrong-world: You cannot cast that spell here.
+str-console-name: Wizard
+text-color: 3
+broadcast-range: 20
+spell-icon-slot: -1
+separate-player-spells-per-world: false
+allow-cycle-to-no-spell: false
+always-show-message-on-cycle: false
+only-cycle-to-castable-spells: true
+allow-cast-with-fist: false
+cast-with-left-click: true
+cast-with-right-click: false
+cycle-spells-with-offhand-action: false
+ops-have-all-spells: true
+ops-ignore-reagents: true
+ops-ignore-cooldowns: true
+ops-ignore-cast-times: true
+default-all-perms-false: false
+ignore-default-bindings: false
+ignore-cast-item-enchants: true
+ignore-cast-item-names: false
+ignore-cast-item-durability: [ shears ]
+los-transparent-blocks: [ air, powered_rail, detector_rail, tallgrass, dead_bush, dandelion, poppy, brown_mushroom, red_mushroom, torch, fire, redstone_wire, standing_sign, ladder, rail, wall_sign, lever, stone_pressure_plate, oak_pressure_plate, unlit_redstone_torch, redstone_torch, stone_button, snow, powered_repeater, powered_repeater, vine, lily_pad ]
+global-cooldown: 500
+check-world-pvp-flag: true
+cast-on-animate: false
+use-exp-bar-as-cast-time-bar: true
+cooldowns-persist-through-reload: true
+allow-anticheat-integrations: false
+ignore-grant-perms-fake-value: true
+enable-magic-xp: true
+str-xp-learned: "You have learned the %s spell!"
+str-xp-header: "Magic Experience:"
+magic-schools:
+    light: "   &eLight&f"
+    beast: "   &7Beast&f"
+    nature: "   &fNature&f"
+magic-affinities:
+    solar: "   &eSolar&f"
+    lunar: "   &eLunar&f"
+    shadow: "   &8Shadow&f"
+    dragon: "   &5Dragon&f"
+    wolf: "    &7Wolf&f"
+    dwarf: "    &7Dwarf&f"
+    goblin: "    &7Goblin&f"
+    spirit: "  &0Spirit&f"
+    nature: "   &2Nature&f"
+    hydro: "   &bHydro&f"
+    zephyr: "   &3Zephyr&f"
+    blaze: "   &4Blaze&f"
+entity-names:
+    zombie: an ugly zombie
+    skeleton: a scary skeleton
+    spider: a spider
+    cavespider: a nasty little spider
+    creeper: a creepy creeper
+    slime: a slimy blob
+    wolf: a wolf
+    snowman: a snow golem
+    villager: an innocent villager
+    enderman: Mr. Enderman
+    silverfish: a slimy silverfish
+    ghast: a ghast
+    pigzombie: a pig zombie
+    blaze: a blaze
+    lavaslime: a magma slime
+    giant: the giant
+    enderdragon: the ender dragon
+    cow: a cow
+    sheep: a sheep
+    pig: a smelly pig
+    chicken: a duck
+    mushroomcow: a deformed cow
+    squid: a slimy squid
+    irongolem: a friendly iron golem
