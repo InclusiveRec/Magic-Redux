@@ -1,0 +1,11 @@
+# Unwanted directories
+hideouts/
+spellbooks/
+errors/
+special/
+xp/
+vars/
+
+# Unwanted files
+*.txt
+zones.yml
