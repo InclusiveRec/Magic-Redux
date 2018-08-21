@@ -1,0 +1,538 @@
+#########################################################################
+#       Solar Affinity - Power derived from the sun and sunlight.       #
+#########################################################################
+
+predefined-items:
+
+    # Casting Items
+    basic_sun_grimoire:
+        type: "book"
+        name: "&eSolar Tablet"
+        lore:
+            - "Basic observations of the"
+            - "movements of the sun. Much"
+            - "of the work is theories and"
+            - "conjecture, but it's a start."
+
+    advanced_sun_grimoire:
+        type: "enchanted_book"
+        name: "&eSolar Almanac"
+        lore:
+            - "Detailed observations of the"
+            - "movements of the sun and"
+            - "theories of how to harness its"
+            - "power for advanced application."
+
+    crude_sun_wand:
+        type: "stick"
+        name: "&eCrude Solar Wand"
+        lore:
+            - "A mundane stick with a"
+            - "faint sun fragment affixed"
+            - "to the top of it to be"
+            - "able to cast basic spells."
+
+    sun_staff:
+        type: "golden_hoe"
+        name: "&eSolar Staff"
+        lore:
+            - "A golden staff, infused"
+            - "with a bright sun fragment"
+            - "and enhancing its power."
+
+    # Reagents
+    faint_fragment:
+        type: "dandelion_yellow"
+        name: "&eWeak Sun Fragement"
+        lore:
+            - "A small shard of the sun that"
+            - "fell to the ground one day."
+            - "It's dim and barely glowing."
+
+    bright_fragment:
+        type: "dandelion_yellow"
+        name: "&eBright Sun Fragement"
+        lore:
+            - "A small shard of the sun that"
+            - "fell to the ground one day."
+            - "It's warm and glowing bright."
+
+
+###################################
+#       Conjuration Spells        #
+###################################
+
+# Grimoire Creation
+
+# Tier II
+
+# Unfinished, needs cooldown, needs particles
+basic_lore_of_the_sun:
+    permission-name: solar
+    spell-class: ".instant.ConjureSpell"
+    allow-command-casting: true
+    bindable: false
+    require-cast-item-on-command: true
+    cast-item: book
+    spell-icon: enchanted_book
+    memory: 5
+    description: |
+            &eLore of the Sun - Basic: Apprentice Solar Spell
+            Creates a Solar Tablet, the first grimoire of the Solar affinity.
+    str-cost: "A book, 15 levels of experience, 4 gold ingots, and 3 faint fragments."
+    str-cast-self: "Your studies on the sun have resulted in something of a breakthrough."
+    str-modifier-failed: "You need 50 Solar MagicXP to cast this spell. Use '/magicxp'"
+    cost:
+        - levels 15
+        - book 1
+        - gold_ingot 4
+        - faint_fragment 3
+    items:
+        - basic_sun_grimoire
+    modifiers:
+        - magicxpabove solar:50 required
+    xp-granted:
+        - solar 1
+
+# Tier IV
+
+#Unfinished, needs cooldown, needs particles
+advanced_lore_of_the_sun:
+    permission-name: solar
+    spell-class: ".instant.ConjureSpell"
+    allow-command-casting: true
+    bindable: false
+    require-cast-item-on-command: true
+    cast-item: sun_tablet
+    spell-icon: enchanted_book
+    memory: 10
+    description: |
+            &eLore of the Sun - Advanced: Master Solar Spell
+            Creates a Solar Almanac, the second grimoire of the Solar affinity.
+    str-cost: "A book, 30 levels of experience, a gold block, and 3 bright fragments."
+    str-cast-self: "Your tireless efforts and reserach have lead to ."
+    str-modifier-failed: "You need 100 Solar MagicXP to cast this spell. Use '/magicxp'"
+    cost:
+        - levels 30
+        - book 1
+        - gold_block 1
+        - bright_fragment 3
+    items:
+        - advanced_sun_grimoire
+    modifiers:
+        - magicxpabove solar:100 required
+    
+# Casting Item creation
+
+# Tier I
+
+# Unfinished, needs cooldown
+solar_wand:
+    permission-name: solar
+    spell-class: ".instant.ConjureSpell"
+    allow-command-casting: true
+    bindable: false
+    require-cast-item-on-command: true
+    cast-item: basic_sun_grimoire
+    memory: 2
+    description: |
+        &eSolar Wand: 2 Memory Solar Spell
+        Infuse your wand with the life-giving energy of the sun.
+    str-cost: "50 mana, 4 gold nuggets, 5 levels, and a faint fragment."
+    str-cast-self: "You manage to affix the fragment to the top of the stick."
+    str-modifier-failed: "You need 25 Solar MagicXP to cast this spell. Use '/magicxp'"
+    cost:
+        - mana 50
+        - levels 5
+        - gold_nugget 4
+        - faint_fragment 1
+    items:
+        - sun_staff 1
+    modifiers:
+        - magicxpabove solar:25 required
+    xp-granted:
+        - solar 1
+    effects:
+        kazam:
+            position: caster
+            effect: particles
+            particle-name: fireworksSpark
+            count: 10
+
+# Tier II
+
+#Unfinished, needs cooldown
+solar_staff:
+    permission-name: solar
+    spell-class: ".instant.ConjureSpell"
+    allow-command-casting: true
+    bindable: false
+    require-cast-item-on-command: true
+    cast-item: basic_sun_grimoire
+    memory: 5
+    description: |
+        &eSolar Staff: 5 Memory Solar Spell
+        Infuse your wand with the life-giving energy of the sun.
+    str-cost: "100 mana, a gold ingot, 10 levels, and a bright fragment."
+    str-cast-self: "With a flash, the gold shapes itself into a shining golden staff."
+    str-modifier-failed: "You need 75 Solar MagicXP to cast this spell. Use '/magicxp'."
+    cost:
+        - mana 100
+        - levels 10
+        - gold_ingot 1
+        - bright_fragment 1
+    items:
+        - sun_staff 1
+    modifiers:
+        - magicxpabove solar:75 required
+    xp-granted:
+        - solar 1
+    effects:
+        kazam:
+            position: caster
+            effect: particles
+            particle-name: fireworksSpark
+            count: 20
+
+
+#################################
+#       Offensive Spells        #
+#################################
+
+# Tier II
+
+banish:
+    enabled: false
+    permission-name: solar
+    spell-class: ".instant.PurgeSpell"
+    cast-item: sun_staff
+    spell-icon: blaze_powder
+    xp-granted:
+      - solar 1
+    memory: 4
+    cost:
+        - mana 50
+    cooldown: 10
+    can-target:
+      - blaze
+      - cave_spider
+      - creeper
+      - enderman
+      - ghast
+      - magma_cube
+      - silverfish
+      - skeleton
+      - slime
+      - spider
+      - witch
+      - zombie
+      - pigzombie
+    power: 1
+    range: 8
+    str-cast-self: "You banish the encroaching forces of darkness."
+    str-cost: "50 mana."
+    str-cast-others: "%a banishes the encroaching forces of darkness."
+    description: |
+        &eBanish: 4 Memory Solar Spell
+        Destroy all monsters near you.
+
+solar_ray:
+    permission-name: solar
+    spell-class: ".instant.ParticleProjectileSpell"
+    cast-item: sun_staff
+    spell-icon: blaze_powder
+    memory: 4
+    check-plugins: true
+    cost:
+      - mana 40
+      - faint_fragment 6
+    bindable: false
+    require-cast-item-on-command: true
+    allow-command-casting: true
+    cooldown: 5
+    hit-players: true
+    max-distance: 120
+    particle-name: mobSpell
+    particle-velocity: 40
+    projectile-gravity: 0.1
+    spell: punch
+    stop-on-hit-entity: false
+    modifiers:
+        - magicxpabove solar:5000 required
+    str-modifier-failed: "You need 5000 Solar MagicXP to cast this spell. Do /magicxp"
+    str-no-target: "No target found."
+    str-cast-others: "%a blasts %t with a ray of solar energy!"
+    str-cast-target: "%a blasts you with a ray of solar energy!"
+    str-cast: "You blast %t with a ray of solar energy!"
+    str-cost: "40 mana and 6 solar amalgam"
+    description: |
+            &eSolar Ray: 4 Memory Solar Spell
+            Blasts your enemy with solar energy, forcing them back and disorienting them.
+            Requires the &eSolar Staff&3 spell.
+
+
+#################################
+#       Defensive Spells        #
+#################################
+
+
+###############################
+#       Utility Spells        #
+###############################
+
+# Tier I
+
+# Unfinished, needs cooldown?, need effects?
+lightwalk:
+    permission-name: solar
+    spell-class: ".buff.LightwalkSpell"
+    cast-item: stick,forest_sickle
+    spell-icon: glowstone
+    xp-granted:
+        - solar 1
+    memory: 1
+    cost:
+        - mana 25
+        - faint_fragment 2
+    use-cost:
+        - faint_fragment 1
+    use-cost-interval: 25
+    str-cost: "25 mana and 2 solar amalgam, plus 1 solar amalgam occasionally."
+    description: |
+        &eLightwalk: 1 Memory Solar Spell
+        Light your path.
+
+bloom:
+    permission-name: solar
+    spell-class: ".targeted.FarmSpell"
+    cast-item: stick,forest_sickle
+    spell-icon: seeds
+    xp-granted:
+      - solar 1
+      - forest 1
+    memory: 3
+    cost:
+        - mana 2
+        - seeds 4
+    cooldown: 2
+    growth: 1
+    radius: 3
+    modifiers:
+        - holding shears|&2Magic__Sickle cooldown 0.1
+        - outside continue
+        - day power 1.5
+    str-cost: "2 mana and 4 seeds."
+    str-on-cooldown: ""
+    description: |
+        &eBloom: 3 Memory Solar Spell
+        Greatly accelerate crop growth.
+    effects:
+        huzzah:
+            effect: greensparkle
+            position: caster
+
+cleanse:
+    permission-name: solar
+    spell-class: ".targeted.CleanseSpell"
+    cast-item: sun_staff
+    xp-granted:
+      - solar 1
+    memory: 3
+    precludes:
+        - sacrifice
+    cost:
+        - mana 20
+        - sunflower 1
+    cooldown: 60
+    remove:
+      - fire
+      - 17
+      - 19
+      - 20
+    target-self: true
+    str-cost: "20 mana and a sunflower."
+    str-cast-self: "You cleanse yourself of negative effects."
+    description: |
+        &eCleanse: 3 Memory Solar Spell
+        Remove negative effects from yourself.
+
+prayer:
+    permission-name: solar
+    spell-class: ".instant.PrayerSpell"
+    cast-item: sun_staff, stick
+    spell-icon: yellow_flower
+    xp-granted:
+      - solar 1
+    memory: 3
+    precludes:
+        - sacrifice
+    cost:
+        - mana 30
+    cooldown: 3
+    memory: 3
+    amount-healed: 10
+    str-at-full-health: "You are already at full health."
+    str-cast-self: "You have healed yourself."
+    str-cost: "30 mana"
+    description: |
+        &ePrayer: 3 Memory Solar Spell
+        &3Heals yourself for five hearts.
+
+# Tier II
+
+heal:
+    permission-name: solar
+    spell-class: ".targeted.HealSpell"
+    cast-item: sun_staff
+    spell-icon: red_rose
+    can-target: players,wolf,cat,horse,pig,iron_golem
+    xp-granted:
+      - solar 1
+      - knight 1
+    memory: 4
+    cost:
+        - mana 10
+    memory: 4
+    cancel-if-full: true
+    heal-amount: 4
+    obey-los: true
+    range: 12
+    str-cost: "10 mana"
+    str-cast-self: "You have healed %t."
+    str-cast-target: "%a has healed you."
+    str-no-target: "No target to heal."
+    str-max-health: "%t is already at max health."
+    description: |
+        &eHeal: 4 Memory Solar Spell
+        Heals a nearby target player.
+    effects:
+        - target potion FF0000 40
+
+soothe:
+    permission-name: solar
+    spell-class: ".targeted.ChainSpell"
+    cast-item: sun_staff
+    xp-granted:
+      - solar 1
+      - knight 1
+    memory: 6
+    cost:
+        - mana 25
+        - faint_fragment
+    bounce-range: 8
+    bounces: 5
+    cooldown: 30
+    interval: 15
+    range: 20
+    spell: heal
+    target-non-players: false
+    target-players: true
+    modifiers:
+        - wearing golden_helmet|&eKnight's__Helm continue
+        - wearing golden_chestplate|&eKnight's__Cuirass continue
+        - wearing golden_leggings|&eKnight's__Greaves continue
+        - wearing golden_boots|&eKnight's__Sabatons power 1
+    str-cast-others: "A wave of soothing energy emanates from %a."
+    str-cast-self: "You send forth a wave of soothing energy."
+    str-cost: "25 mana and one solar amalgam."
+    description: |
+        &eSoothe: 6 Memory Solar Spell
+        A wave of healing energy emanates from the caster, passing
+        through nearby individuals and restoring their health.
+
+
+##############################
+#       Ritual Spells        #
+##############################
+
+# Tier III
+
+dawnrite:
+    enabled: false
+    permission-name: solar
+    spell-class: ".instant.RitualSpell"
+    cast-item: sun_staff
+    charge-reagents-immediately: false
+    memory: 6
+    cooldown: 1800
+    ritual-duration: 400
+    description: |
+            &eDawnrite: 6 Memory Solar Spell
+            A ritual which will cause the sun to rise.
+            This ritual requires three participants and takes 20 seconds of concentration to cast.
+            Moving will disrupt the ritual.  Requires the &eSolar Staff&3 spell.
+    str-cost: "100 mana and 1 gold ingot."
+    str-cast-self: "You have begun the ritual to summon the dawn."
+    str-cast-others: "%a has begun a ritual to summon dawn.  Right-click to participate."
+    str-modifier-failed: "You can only begin this ritual at night. You need 500 Solar MagicXP to cast this spell. Use '/magicxp'."
+    str-ritual-fail: "The dawn rite has failed."
+    str-ritual-interrupted: "The dawn rite has been interrupted!"
+    str-ritual-joined: "You have joined in the dawn rite."
+    str-ritual-success: "The dawn is summoned!"
+    cost:
+        - mana 100
+        - gold_ingot 1
+    spell: sunrise
+    modifiers:
+        - night required
+        - magicxpabove solar:500 required
+    xp-granted:
+        - solar 1
+    
+# Unfinished, needs XP adjustment, needs particles
+skycalm:
+    permission-name: solar
+    spell-class: ".instant.RitualSpell"
+    cast-item: sun_grimoire
+    require-cast-item-on-command: true
+    allow-command-casting: true
+    xp-granted:
+        - solar 1
+    cost:
+        - mana 100
+        - gold_ingot 3
+    cooldown: 300
+    memory: 8
+    charge-reagents-immediately: true
+    need-spell-to-participate: false
+    req-participants: 2
+    ritual-duration: 400
+    spell: sunny-helper
+    modifiers:
+        - outside required
+        - storm required
+        - magicxpabove solar:500 required
+    str-cast-others: "%a has begun a ritual to summon clear skies.  Right-click to participate."
+    str-cast-self: "You begin to calm the skies..."
+    str-cost: "100 mana and 3 gold ingots."
+    str-modifier-failed: "The sky is already clear! You need 500 Solar MagicXP to cast this spell. Do /magicxp "
+    str-ritual-failed: "You are not able to dispel the storm, and your ingredients are consumed!"
+    str-ritual-joined: "You reach forward, joining hands with %a, and a ripple of energy passes between your hands as you begin to calm the skies."
+    str-ritual-success: "The weather clears!"
+    description: |
+            &eSkycalm: 8 Memory Solar Spell
+            You clear the skies of bad weather.
+
+
+###############################
+#       Passive Spells        #
+###############################
+
+solar_guard:
+    permission-name: solar
+    spell-class: ".PassiveSpell"
+    memory: 7
+    cost:
+      - mana 40
+      - faint_fragment 6
+    modifiers:
+        - magicxpabove solar:5000 required
+    spells:
+        - solar_ray
+    triggers:
+        - takedamage ENTITY_ATTACK
+        - takedamage PROJECTILE
+        - takedamage MAGIC
+    description: |
+            &eSolar Guard: 7 Memory Solar Spell
+            Passively protect yourself with solar energy, forcing foes back and disorienting them.
