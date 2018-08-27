@@ -110,7 +110,7 @@ advanced_lore_of_the_sun:
             &eLore of the Sun - Advanced: Master Solar Spell
             Creates a Solar Almanac, the second grimoire of the Solar affinity.
     str-cost: "A book, 30 levels of experience, a gold block, and 3 bright fragments."
-    str-cast-self: "Your tireless efforts and reserach have lead to ."
+    str-cast-self: "Your tireless efforts and research have lead to ."
     str-modifier-failed: "You need 100 Solar MagicXP to cast this spell. Use '/magicxp'"
     cost:
         - levels 30
